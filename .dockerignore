@@ -1,0 +1,14 @@
+# git + ide
+.git
+.gitignore
+.idea/
+.vscode/
+
+# python
+venv/
+__pycache__/
+*.pyc
+
+# mac
+.DS_Store
+

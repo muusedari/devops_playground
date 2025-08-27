@@ -1,13 +1,22 @@
-name: CI PIPELINE
+name: CI Pipeline
+
 on: [push, pull_request]
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Run a simple test
-        run: echo "CI pipeline running ✅"
-    
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"   # 👈 this line was missing or broken
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest -q
+
